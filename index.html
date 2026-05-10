@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FluxFi</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:#040816;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* BACKGROUND */
+
+.bg{
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at top left, rgba(255,140,0,0.15), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(255,140,0,0.12), transparent 25%),
+    #040816;
+  z-index:-2;
+}
+
+.bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size:32px 32px;
+  opacity:.4;
+}
+
+/* CONTAINER */
+
+.container{
+  width:100%;
+  max-width:480px;
+  margin:auto;
+  padding:24px 18px 80px;
+}
+
+/* NAVBAR */
+
+.nav{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:32px;
+}
+
+.logo{
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  background:linear-gradient(
+    90deg,
+    #1b1208 0%,
+    #6b3d0a 45%,
+    #ff9800 100%
+  );
+  box-shadow:
+    0 0 30px rgba(255,152,0,0.15);
+}
+
+.brand{
+  font-size:38px;
+  font-weight:800;
+  letter-spacing:-1px;
+  background:linear-gradient(
+    90deg,
+    #8b5a1c 0%,
+    #ff9800 100%
+  );
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* HERO */
+
+.hero{
+  background:linear-gradient(
+    180deg,
+    rgba(12,18,40,0.95),
+    rgba(7,11,26,0.96)
+  );
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  border-radius:34px;
+  padding:34px 28px;
+  box-shadow:
+    0 0 40px rgba(0,0,0,0.45),
+    inset 0 0 0 1px rgba(255,255,255,0.03);
+
+  backdrop-filter:blur(18px);
+}
+
+.hero h1{
+  font-size:52px;
+  line-height:1.05;
+  font-weight:800;
+  letter-spacing:-2px;
+  margin-bottom:22px;
+}
+
+.highlight{
+  background:linear-gradient(
+    90deg,
+    #8b5a1c 0%,
+    #ff9800 100%
+  );
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+  color:#b6bfd4;
+  line-height:1.8;
+  font-size:17px;
+  margin-bottom:34px;
+}
+
+/* CARD */
+
+.card{
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:26px;
+  padding:24px;
+  margin-top:24px;
+}
+
+.card-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:18px;
+}
+
+.small{
+  color:#8f97ab;
+  font-size:13px;
+  letter-spacing:4px;
+}
+
+.live{
+  color:#ff9800;
+  font-weight:700;
+  font-size:14px;
+}
+
+.balance{
+  font-size:52px;
+  font-weight:800;
+  margin-bottom:18px;
+}
+
+.stats{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+}
+
+.stats-left{
+  color:#c6ccda;
+  line-height:1.9;
+  font-size:17px;
+}
+
+.stats-right{
+  text-align:right;
+  color:#ff9800;
+  font-size:18px;
+  font-weight:700;
+  line-height:1.9;
+}
+
+/* POSITIONS */
+
+.positions{
+  margin-top:28px;
+}
+
+.position{
+  background:rgba(255,255,255,0.04);
+  border-radius:18px;
+  padding:18px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:16px;
+}
+
+.position span{
+  font-size:18px;
+  color:#e4e8f3;
+}
+
+.apy{
+  color:#ff9800;
+  font-size:22px;
+  font-weight:700;
+}
+
+/* EARLY ACCESS */
+
+.early{
+  margin-top:36px;
+}
+
+.early h2{
+  font-size:46px;
+  line-height:1.05;
+  margin:18px 0;
+  letter-spacing:-2px;
+}
+
+.early p{
+  color:#b6bfd4;
+  line-height:1.7;
+  font-size:18px;
+  margin-bottom:28px;
+}
+
+.input{
+  width:100%;
+  height:72px;
+  border:none;
+  outline:none;
+  border-radius:24px;
+  padding:0 24px;
+  font-size:22px;
+  font-weight:600;
+  margin-bottom:20px;
+  background:#f2f2f2;
+}
+
+.button{
+  width:100%;
+  height:76px;
+  border:none;
+  border-radius:24px;
+  font-size:28px;
+  font-weight:800;
+  cursor:pointer;
+
+  background:linear-gradient(
+    90deg,
+    #8b5a1c,
+    #ff9800
+  );
+
+  color:black;
+
+  transition:.25s;
+}
+
+.button:hover{
+  transform:translateY(-2px);
+  opacity:.95;
+}
+
+/* MOBILE */
+
+@media(max-width:480px){
+
+  .hero h1{
+    font-size:42px;
+  }
+
+  .brand{
+    font-size:32px;
+  }
+
+  .balance{
+    font-size:42px;
+  }
+
+  .early h2{
+    font-size:38px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<div class="container">
+
+  <div class="nav">
+    <div class="logo"></div>
+    <div class="brand">FluxFi</div>
+  </div>
+
+  <section class="hero">
+
+    <h1>
+      Onchain <span class="highlight">Fixed Yield.</span><br>
+      Real Estate Backed.
+    </h1>
+
+    <p>
+      Earn predictable returns from tokenized property tax liens,
+      backed by real estate with potential upside from foreclosure outcomes.
+    </p>
+
+    <div class="card">
+
+      <div class="card-top">
+        <div class="small">PORTFOLIO</div>
+        <div class="live">LIVE</div>
+      </div>
+
+      <div class="balance">$248,410</div>
+
+      <div class="stats">
+
+        <div class="stats-left">
+          Accrued Interest<br>
+          Liens Redeemed
+        </div>
+
+        <div class="stats-right">
+          $4,205<br>
+          8
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="card positions">
+
+      <div class="small">ACTIVE POSITIONS</div>
+
+      <div class="position">
+        <span>Orange County</span>
+        <div class="apy">5.8%</div>
+      </div>
+
+      <div class="position">
+        <span>Dallas County</span>
+        <div class="apy">7.2%</div>
+      </div>
+
+      <div class="position">
+        <span>Phoenix County</span>
+        <div class="apy">9.1%</div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="hero early">
+
+    <div class="small">EARLY ACCESS</div>
+
+    <h2>Early access starts here.</h2>
+
+    <p>
+      Get early access and product updates as we roll out FluxFi on Base.
+    </p>
+
+    <input
+      class="input"
+      type="email"
+      placeholder="Enter your email"
+    >
+
+    <button class="button">
+      Get notified
+    </button>
+
+  </section>
+
+</div>
+
+</body>
+</html>
