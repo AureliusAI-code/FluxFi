@@ -1,0 +1,124 @@
+/* GANTI BAGIAN CSS YANG LAMA DENGAN INI */
+
+/* HERO */
+
+.hero h1{
+  font-size:36px;
+  line-height:1.08;
+  letter-spacing:-2px;
+  font-weight:800;
+  margin-bottom:20px;
+}
+
+.hero p{
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.8;
+  margin-bottom:28px;
+}
+
+/* LABEL */
+
+.label{
+  font-size:11px;
+  letter-spacing:4px;
+  color:#8891a5;
+}
+
+/* BALANCE */
+
+.balance{
+  font-size:42px;
+  font-weight:800;
+  letter-spacing:-2px;
+  margin-bottom:14px;
+}
+
+.left{
+  color:#c0c7d8;
+  line-height:1.8;
+  font-size:15px;
+}
+
+.right{
+  text-align:right;
+  color:var(--orange);
+  line-height:1.8;
+  font-size:16px;
+  font-weight:700;
+}
+
+/* POSITIONS */
+
+.position{
+  padding:16px 18px;
+}
+
+.position span{
+  font-size:16px;
+}
+
+.apy{
+  font-size:18px;
+}
+
+/* EARLY ACCESS */
+
+.early h2{
+  font-size:34px;
+  line-height:1.08;
+  letter-spacing:-2px;
+  margin:14px 0 16px;
+}
+
+.early p{
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.7;
+  margin-bottom:24px;
+}
+
+/* INPUT */
+
+input{
+  height:64px;
+  padding:0 22px;
+  font-size:18px;
+  border-radius:20px;
+}
+
+button{
+  height:66px;
+  border-radius:20px;
+  font-size:22px;
+  font-weight:800;
+}
+
+/* NAV */
+
+.brand{
+  font-size:30px;
+}
+
+.logo{
+  width:42px;
+  height:42px;
+}
+
+/* MOBILE */
+
+@media(max-width:480px){
+
+  .hero h1{
+    font-size:34px;
+  }
+
+  .early h2{
+    font-size:32px;
+  }
+
+  .balance{
+    font-size:38px;
+  }
+
+}
