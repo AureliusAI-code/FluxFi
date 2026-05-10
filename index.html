@@ -43,8 +43,6 @@ body{
   );
 }
 
-/* GLOW */
-
 .background::before{
   content:"";
   position:absolute;
@@ -57,8 +55,6 @@ body{
 
   filter:blur(40px);
 }
-
-/* GRID */
 
 .background::after{
   content:"";
@@ -92,8 +88,14 @@ body{
 .nav{
   display:flex;
   align-items:center;
-  gap:14px;
+  justify-content:space-between;
   margin-bottom:28px;
+}
+
+.nav-left{
+  display:flex;
+  align-items:center;
+  gap:14px;
 }
 
 .logo{
@@ -127,6 +129,38 @@ body{
 
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
+}
+
+/* X BUTTON */
+
+.x-btn{
+  width:46px;
+  height:46px;
+
+  border-radius:14px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:rgba(255,255,255,.05);
+
+  border:1px solid rgba(255,255,255,.06);
+
+  text-decoration:none;
+
+  transition:.2s;
+}
+
+.x-btn:hover{
+  transform:translateY(-2px);
+  background:rgba(255,255,255,.08);
+}
+
+.x-btn svg{
+  width:18px;
+  height:18px;
+  fill:white;
 }
 
 /* MAIN CARD */
@@ -420,8 +454,24 @@ button:hover{
   <!-- NAV -->
 
   <div class="nav">
-    <div class="logo"></div>
-    <div class="brand">FluxFi</div>
+
+    <div class="nav-left">
+      <div class="logo"></div>
+      <div class="brand">FluxFi</div>
+    </div>
+
+    <!-- X LINK -->
+
+    <a
+      href="https://x.com/fluxfiapp"
+      target="_blank"
+      class="x-btn"
+    >
+      <svg viewBox="0 0 24 24">
+        <path d="M18.244 2H21.5l-7.11 8.128L22.75 22h-6.544l-5.123-6.696L5.22 22H1.96l7.605-8.69L1.25 2h6.708l4.63 6.104L18.244 2Zm-1.148 18h1.803L6.98 3.895H5.045L17.096 20Z"/>
+      </svg>
+    </a>
+
   </div>
 
   <!-- HERO -->
