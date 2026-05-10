@@ -7,7 +7,7 @@
 <title>FluxFi</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 
@@ -19,61 +19,76 @@
 
 body{
   font-family:'Inter',sans-serif;
-  background:#050816;
+  background:#030816;
   color:white;
   overflow-x:hidden;
 }
 
 /* BACKGROUND */
 
-body::before{
-  content:"";
+.background{
   position:fixed;
   inset:0;
   z-index:-1;
 
   background:
-  radial-gradient(circle at top left, rgba(255,140,0,.08), transparent 28%),
-  radial-gradient(circle at bottom right, rgba(255,140,0,.05), transparent 25%),
-  #050816;
+  radial-gradient(circle at top left, rgba(255,140,0,.10), transparent 28%),
+  radial-gradient(circle at top right, rgba(255,140,0,.06), transparent 22%),
+  #030816;
+}
+
+.background::after{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background-image:
+  radial-gradient(rgba(255,255,255,.04) 1px, transparent 1px);
+
+  background-size:28px 28px;
+
+  opacity:.4;
 }
 
 /* CONTAINER */
 
 .container{
   width:100%;
-  max-width:390px;
+  max-width:520px;
   margin:auto;
-  padding:18px 14px 60px;
+  padding:26px 18px 80px;
 }
 
-/* NAVBAR */
+/* NAV */
 
 .nav{
   display:flex;
   align-items:center;
-  gap:10px;
-  margin-bottom:18px;
+  gap:14px;
+  margin-bottom:28px;
 }
 
 .logo{
-  width:30px;
-  height:30px;
+  width:46px;
+  height:46px;
   border-radius:50%;
 
   background:
   linear-gradient(
     90deg,
-    #201308 0%,
-    #6f4009 45%,
+    #1a1208 0%,
+    #6d3f09 45%,
     #ff9800 100%
   );
+
+  box-shadow:
+  0 0 30px rgba(255,152,0,.12);
 }
 
 .brand{
-  font-size:19px;
+  font-size:34px;
   font-weight:800;
-  letter-spacing:-0.5px;
+  letter-spacing:-1px;
 
   background:
   linear-gradient(
@@ -92,34 +107,38 @@ body::before{
   background:
   linear-gradient(
     180deg,
-    rgba(12,18,40,.96),
-    rgba(7,12,25,.98)
+    rgba(11,18,38,.98),
+    rgba(7,12,24,.98)
   );
 
-  border:1px solid rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.06);
 
-  border-radius:22px;
+  border-radius:34px;
 
-  padding:18px;
+  padding:34px 28px;
 
-  margin-bottom:16px;
+  margin-bottom:24px;
+
+  box-shadow:
+  0 20px 50px rgba(0,0,0,.35),
+  inset 0 1px 0 rgba(255,255,255,.03);
 }
 
 /* HERO */
 
 .hero-title{
-  font-size:22px;
-  line-height:1.2;
-  font-weight:800;
-  letter-spacing:-1px;
-  margin-bottom:12px;
+  font-size:58px;
+  line-height:1.02;
+  font-weight:900;
+  letter-spacing:-3px;
+  margin-bottom:24px;
 }
 
 .highlight{
   background:
   linear-gradient(
     90deg,
-    #9d6420 0%,
+    #9a6320 0%,
     #ff9800 100%
   );
 
@@ -128,49 +147,50 @@ body::before{
 }
 
 .hero-desc{
-  color:#9ea8bc;
-  font-size:12px;
-  line-height:1.7;
-  margin-bottom:18px;
+  color:#b0b8ca;
+  font-size:18px;
+  line-height:1.8;
+  margin-bottom:34px;
 }
 
 /* INNER CARD */
 
-.inner{
+.inner-card{
   background:rgba(255,255,255,.03);
 
-  border:1px solid rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.05);
 
-  border-radius:16px;
+  border-radius:26px;
 
-  padding:14px;
+  padding:24px;
 
-  margin-top:14px;
+  margin-top:22px;
 }
 
 .top{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:10px;
+  margin-bottom:18px;
 }
 
 .label{
-  color:#7f8798;
-  font-size:9px;
-  letter-spacing:2px;
+  color:#8d95a8;
+  font-size:13px;
+  letter-spacing:5px;
 }
 
 .live{
   color:#ff9800;
-  font-size:10px;
+  font-size:14px;
   font-weight:700;
 }
 
 .balance{
-  font-size:26px;
-  font-weight:800;
-  margin-bottom:10px;
+  font-size:58px;
+  font-weight:900;
+  letter-spacing:-2px;
+  margin-bottom:18px;
 }
 
 .stats{
@@ -179,16 +199,16 @@ body::before{
 }
 
 .left{
-  color:#c4cada;
-  line-height:1.7;
-  font-size:12px;
+  color:#c5ccda;
+  line-height:2;
+  font-size:18px;
 }
 
 .right{
   text-align:right;
   color:#ff9800;
-  line-height:1.7;
-  font-size:12px;
+  line-height:2;
+  font-size:20px;
   font-weight:700;
 }
 
@@ -199,41 +219,41 @@ body::before{
   justify-content:space-between;
   align-items:center;
 
-  background:rgba(255,255,255,.03);
+  background:rgba(255,255,255,.04);
 
-  border-radius:12px;
+  border-radius:18px;
 
-  padding:12px;
+  padding:18px 20px;
 
-  margin-top:10px;
+  margin-top:16px;
 }
 
 .position span{
-  font-size:12px;
-  color:#edf1f8;
+  font-size:20px;
+  color:#edf2fa;
 }
 
 .apy{
   color:#ff9800;
-  font-size:13px;
-  font-weight:700;
+  font-size:24px;
+  font-weight:800;
 }
 
 /* EARLY ACCESS */
 
 .early-title{
-  font-size:22px;
-  line-height:1.2;
-  font-weight:800;
-  letter-spacing:-1px;
-  margin:10px 0;
+  font-size:56px;
+  line-height:1.05;
+  letter-spacing:-2px;
+  font-weight:900;
+  margin:16px 0 18px;
 }
 
 .early-desc{
-  color:#9ea8bc;
-  font-size:12px;
-  line-height:1.7;
-  margin-bottom:18px;
+  color:#b0b8ca;
+  font-size:20px;
+  line-height:1.8;
+  margin-bottom:28px;
 }
 
 /* INPUT */
@@ -241,38 +261,42 @@ body::before{
 .input-wrap{
   display:flex;
   flex-direction:column;
-  gap:10px;
+  gap:18px;
 }
 
 input{
   width:100%;
-  height:46px;
+  height:82px;
 
   border:none;
   outline:none;
 
-  border-radius:14px;
+  border-radius:26px;
 
-  padding:0 14px;
+  padding:0 24px;
 
-  background:#f4f5f7;
+  background:#f3f4f7;
 
   color:#111827;
 
-  font-size:13px;
+  font-size:28px;
   font-weight:600;
+}
+
+input::placeholder{
+  color:#98a1b5;
 }
 
 button{
   width:100%;
-  height:48px;
+  height:84px;
 
   border:none;
 
-  border-radius:14px;
+  border-radius:26px;
 
-  font-size:14px;
-  font-weight:800;
+  font-size:34px;
+  font-weight:900;
 
   cursor:pointer;
 
@@ -284,33 +308,82 @@ button{
   );
 
   color:black;
+
+  transition:.2s;
+}
+
+button:hover{
+  transform:translateY(-2px);
 }
 
 .success{
   display:none;
 
-  margin-top:10px;
+  margin-top:18px;
 
   background:rgba(255,152,0,.12);
 
-  border:1px solid rgba(255,152,0,.18);
+  border:1px solid rgba(255,152,0,.2);
 
   color:#ffb347;
 
-  padding:12px;
+  padding:18px;
 
-  border-radius:12px;
+  border-radius:18px;
 
   text-align:center;
 
-  font-size:12px;
+  font-size:18px;
   font-weight:700;
+}
+
+/* MOBILE */
+
+@media(max-width:540px){
+
+  .hero-title{
+    font-size:42px;
+  }
+
+  .early-title{
+    font-size:40px;
+  }
+
+  .balance{
+    font-size:44px;
+  }
+
+  .hero-desc,
+  .early-desc{
+    font-size:16px;
+  }
+
+  .position span{
+    font-size:17px;
+  }
+
+  .apy{
+    font-size:20px;
+  }
+
+  input{
+    height:72px;
+    font-size:22px;
+  }
+
+  button{
+    height:74px;
+    font-size:28px;
+  }
+
 }
 
 </style>
 </head>
 
 <body>
+
+<div class="background"></div>
 
 <div class="container">
 
@@ -333,19 +406,20 @@ button{
     </div>
 
     <div class="hero-desc">
-      Earn predictable returns from tokenized property tax liens backed by real estate.
+      Earn predictable returns from tokenized property tax liens,
+      backed by real estate with potential upside from foreclosure outcomes.
     </div>
 
     <!-- PORTFOLIO -->
 
-    <div class="inner">
+    <div class="inner-card">
 
       <div class="top">
         <div class="label">PORTFOLIO</div>
         <div class="live">LIVE</div>
       </div>
 
-      <div class="balance">$248,410</div>
+      <div class="balance">$120,105</div>
 
       <div class="stats">
 
@@ -355,8 +429,8 @@ button{
         </div>
 
         <div class="right">
-          $4,205<br>
-          8
+          $2305<br>
+          2
         </div>
 
       </div>
@@ -365,23 +439,23 @@ button{
 
     <!-- POSITIONS -->
 
-    <div class="inner">
+    <div class="inner-card">
 
       <div class="label">ACTIVE POSITIONS</div>
 
       <div class="position">
-        <span>Orange County</span>
-        <div class="apy">5.8%</div>
+        <span>Miami-Dade County</span>
+        <div class="apy">5.0%</div>
       </div>
 
       <div class="position">
-        <span>Dallas County</span>
-        <div class="apy">7.2%</div>
+        <span>Mercer County</span>
+        <div class="apy">4.8%</div>
       </div>
 
       <div class="position">
-        <span>Phoenix County</span>
-        <div class="apy">9.1%</div>
+        <span>Cooke County</span>
+        <div class="apy">9.4%</div>
       </div>
 
     </div>
@@ -399,7 +473,7 @@ button{
     </div>
 
     <div class="early-desc">
-      Get updates as we roll out FluxFi on Base.
+      Get early access and product updates as we roll out FluxFi on Base.
     </div>
 
     <div class="input-wrap">
