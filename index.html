@@ -18,55 +18,119 @@ box-sizing:border-box;
 scroll-behavior:smooth;
 }
 
-body{
-background:#030303;
-color:white;
-font-family:'Inter',sans-serif;
+html{
 overflow-x:hidden;
 }
 
-/* BACKGROUND */
+body{
+background:#020202;
+color:white;
+font-family:'Inter',sans-serif;
+overflow-x:hidden;
+position:relative;
+}
+
+/* =========================
+BACKGROUND GRID
+========================= */
 
 body::before{
 content:'';
 position:fixed;
-inset:0;
+inset:-200px;
 background:
-linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
 background-size:60px 60px;
-z-index:-5;
+animation:gridMove 18s linear infinite;
+z-index:-10;
 }
+
+@keyframes gridMove{
+0%{
+transform:translateY(0px);
+}
+100%{
+transform:translateY(60px);
+}
+}
+
+/* =========================
+BACKGROUND GLOW
+========================= */
 
 .bg-glow{
 position:fixed;
-width:800px;
-height:800px;
-background:#356dff;
+width:900px;
+height:900px;
+background:#4d7dff;
 filter:blur(220px);
 opacity:0.08;
-top:-300px;
-right:-250px;
-z-index:-4;
+top:-320px;
+right:-260px;
+z-index:-9;
+animation:glowMove 8s ease-in-out infinite alternate;
 }
 
-/* NAVBAR */
+@keyframes glowMove{
+0%{
+transform:translate(0px,0px);
+}
+100%{
+transform:translate(-40px,40px);
+}
+}
+
+/* =========================
+FLOATING PARTICLES
+========================= */
+
+.cube{
+position:absolute;
+width:16px;
+height:16px;
+border-radius:4px;
+border:1px solid rgba(255,255,255,0.12);
+background:rgba(255,255,255,0.02);
+backdrop-filter:blur(10px);
+box-shadow:0 0 18px rgba(77,125,255,0.35);
+animation:floatCube 10s linear infinite;
+}
+
+@keyframes floatCube{
+0%{
+transform:translateY(0px);
+opacity:0.2;
+}
+50%{
+opacity:0.8;
+}
+100%{
+transform:translateY(-120px);
+opacity:0;
+}
+}
+
+/* =========================
+NAVBAR
+========================= */
 
 nav{
 position:fixed;
 top:0;
+left:0;
 width:100%;
 z-index:999;
-backdrop-filter:blur(18px);
 background:rgba(0,0,0,0.45);
+backdrop-filter:blur(18px);
 border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 .nav-container{
 width:92%;
-max-width:1300px;
-margin:auto;
+max-width:1280px;
 height:90px;
+margin:auto;
 display:flex;
 align-items:center;
 justify-content:space-between;
@@ -79,7 +143,7 @@ letter-spacing:2px;
 }
 
 .logo span{
-color:#7fa8ff;
+color:#88afff;
 }
 
 .nav-links{
@@ -88,8 +152,8 @@ gap:34px;
 }
 
 .nav-links a{
-color:#8d8d8d;
 text-decoration:none;
+color:#8d8d8d;
 font-size:14px;
 transition:0.3s;
 }
@@ -99,20 +163,33 @@ color:white;
 }
 
 .connect-btn{
-padding:18px 30px;
+padding:16px 28px;
 border-radius:18px;
 background:white;
 color:black;
 font-weight:700;
 text-decoration:none;
 transition:0.3s;
+box-shadow:0 0 30px rgba(255,255,255,0.08);
 }
 
 .connect-btn:hover{
 transform:translateY(-3px);
 }
 
-/* HERO */
+/* =========================
+CONTAINER
+========================= */
+
+.container{
+width:92%;
+max-width:1240px;
+margin:auto;
+}
+
+/* =========================
+HERO
+========================= */
 
 .hero{
 min-height:100vh;
@@ -121,93 +198,62 @@ align-items:center;
 justify-content:center;
 position:relative;
 overflow:hidden;
-}
-
-.container{
-width:92%;
-max-width:1250px;
-margin:auto;
+padding-top:120px;
 }
 
 .hero-content{
 text-align:center;
-padding-top:100px;
-}
-
-/* FLOATING CUBES */
-
-.cube{
-position:absolute;
-width:18px;
-height:18px;
-border-radius:4px;
-border:1px solid rgba(255,255,255,0.12);
-box-shadow:0 0 18px rgba(72,110,255,0.5);
-backdrop-filter:blur(10px);
-animation:float 10s infinite linear;
-}
-
-@keyframes float{
-0%{
-transform:translateY(0px);
-opacity:0.2;
-}
-50%{
-opacity:1;
-}
-100%{
-transform:translateY(-120px);
-opacity:0;
-}
 }
 
 .mini-text{
+font-size:12px;
 letter-spacing:8px;
 text-transform:uppercase;
-font-size:12px;
-color:#9d9d9d;
+color:#8f8f8f;
 margin-bottom:24px;
 }
 
 .hero-title{
-font-size:140px;
+font-size:150px;
 font-family:'Orbitron',sans-serif;
 line-height:1;
 letter-spacing:6px;
-background:linear-gradient(to bottom,#ffffff,#4e4e4e);
+margin-bottom:20px;
+background:linear-gradient(to bottom,#ffffff,#5c5c5c);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-margin-bottom:18px;
 }
 
 .hero-sub{
-font-size:32px;
+font-size:34px;
 font-family:'Cormorant Garamond',serif;
 font-style:italic;
-color:#8db0ff;
-margin-bottom:28px;
+color:#8fb2ff;
+margin-bottom:30px;
 }
 
 .hero-text{
 max-width:850px;
 margin:auto;
-line-height:1.9;
 font-size:18px;
-color:#9c9c9c;
+line-height:1.9;
+color:#9f9f9f;
 }
+
+/* =========================
+BUTTONS
+========================= */
 
 .hero-buttons{
 margin-top:50px;
 display:flex;
 justify-content:center;
-gap:22px;
+gap:20px;
 flex-wrap:wrap;
 }
 
-/* BUTTONS */
-
 .btn{
-padding:22px 38px;
+padding:20px 36px;
 border-radius:22px;
 font-weight:700;
 text-decoration:none;
@@ -220,27 +266,28 @@ justify-content:center;
 .btn-primary{
 background:white;
 color:black;
-box-shadow:0 0 35px rgba(255,255,255,0.08);
 }
 
 .btn-dark{
 background:rgba(255,255,255,0.03);
 border:1px solid rgba(255,255,255,0.08);
-color:white;
 backdrop-filter:blur(20px);
+color:white;
 }
 
 .btn:hover{
 transform:translateY(-5px);
 }
 
-/* CONTRACT */
+/* =========================
+CONTRACT
+========================= */
 
 .contract-box{
-margin:80px auto 0;
 width:520px;
 max-width:95%;
-padding:28px 34px;
+margin:80px auto 0;
+padding:28px 32px;
 border-radius:28px;
 background:rgba(255,255,255,0.03);
 border:1px solid rgba(255,255,255,0.08);
@@ -248,20 +295,22 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 backdrop-filter:blur(20px);
-box-shadow:0 0 40px rgba(0,0,0,0.45);
+box-shadow:0 0 40px rgba(0,0,0,0.4);
 }
 
 .contract-box span{
 font-size:13px;
 letter-spacing:6px;
-color:#888;
+color:#858585;
 }
 
 .contract-box strong{
 font-size:22px;
 }
 
-/* STATS */
+/* =========================
+STATS
+========================= */
 
 .stats{
 margin-top:100px;
@@ -276,29 +325,32 @@ border-radius:30px;
 background:rgba(255,255,255,0.03);
 border:1px solid rgba(255,255,255,0.08);
 backdrop-filter:blur(20px);
-text-align:left;
 transition:0.3s;
+text-align:left;
 }
 
 .stat-card:hover{
 transform:translateY(-6px);
-border-color:#5f8eff;
+border-color:#5f8dff;
+box-shadow:0 0 30px rgba(95,141,255,0.12);
 }
 
 .stat-card span{
 display:block;
 font-size:12px;
 letter-spacing:5px;
-color:#7f7f7f;
-margin-bottom:18px;
 text-transform:uppercase;
+color:#7f7f7f;
+margin-bottom:16px;
 }
 
 .stat-card h2{
 font-size:52px;
 }
 
-/* SECTION */
+/* =========================
+SECTIONS
+========================= */
 
 .section{
 padding:140px 0;
@@ -307,8 +359,8 @@ padding:140px 0;
 .section-mini{
 font-size:12px;
 letter-spacing:6px;
-color:#8b8b8b;
 text-transform:uppercase;
+color:#8a8a8a;
 margin-bottom:24px;
 }
 
@@ -325,23 +377,25 @@ color:#8fb2ff;
 }
 
 .section-text{
-max-width:850px;
+max-width:860px;
 font-size:20px;
 line-height:1.9;
-color:#9b9b9b;
+color:#9d9d9d;
 }
 
-/* CARDS */
+/* =========================
+CARDS
+========================= */
 
 .cards{
 margin-top:70px;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:26px;
+gap:24px;
 }
 
 .card{
-padding:44px;
+padding:42px;
 border-radius:30px;
 background:rgba(255,255,255,0.03);
 border:1px solid rgba(255,255,255,0.08);
@@ -352,6 +406,7 @@ transition:0.35s;
 .card:hover{
 transform:translateY(-8px);
 border-color:#5f8dff;
+box-shadow:0 0 30px rgba(95,141,255,0.12);
 }
 
 .card h3{
@@ -362,10 +417,12 @@ margin-bottom:18px;
 
 .card p{
 line-height:1.9;
-color:#a1a1a1;
+color:#9f9f9f;
 }
 
-/* AGENTS */
+/* =========================
+AGENTS
+========================= */
 
 .agents{
 margin-top:70px;
@@ -389,15 +446,17 @@ border-color:#5f8dff;
 
 .agent h4{
 font-size:28px;
-margin-bottom:16px;
+margin-bottom:14px;
 }
 
 .agent p{
 line-height:1.8;
-color:#9d9d9d;
+color:#9b9b9b;
 }
 
-/* CTA */
+/* =========================
+CTA
+========================= */
 
 .cta{
 padding:90px;
@@ -417,18 +476,20 @@ margin-bottom:28px;
 
 .cta h2 span{
 font-style:italic;
-color:#8eb0ff;
+color:#8fb2ff;
 }
 
 .cta p{
-max-width:850px;
+max-width:820px;
 margin:auto;
-line-height:1.9;
 font-size:20px;
+line-height:1.9;
 color:#9d9d9d;
 }
 
-/* FOOTER */
+/* =========================
+FOOTER
+========================= */
 
 footer{
 padding:120px 0 60px;
@@ -442,9 +503,9 @@ color:black;
 }
 
 .footer-logo{
-font-size:72px;
+font-size:70px;
 font-weight:800;
-margin-bottom:24px;
+margin-bottom:22px;
 }
 
 .footer-text{
@@ -491,7 +552,9 @@ color:black;
 font-weight:700;
 }
 
-/* MOBILE */
+/* =========================
+MOBILE
+========================= */
 
 @media(max-width:768px){
 
@@ -520,8 +583,16 @@ padding:40px 30px;
 }
 
 .connect-btn{
-padding:15px 20px;
+padding:14px 20px;
 font-size:14px;
+}
+
+.contract-box{
+padding:22px;
+}
+
+.contract-box strong{
+font-size:16px;
 }
 
 }
@@ -530,6 +601,8 @@ font-size:14px;
 </head>
 
 <body>
+
+<div class="bg-glow"></div>
 
 <!-- FLOATING PARTICLES -->
 
@@ -540,7 +613,6 @@ font-size:14px;
 <div class="cube" style="top:82%;left:72%;animation-delay:3s;"></div>
 <div class="cube" style="top:40%;left:30%;animation-delay:5s;"></div>
 
-<div class="bg-glow"></div>
 <!-- NAVBAR -->
 
 <nav>
@@ -588,7 +660,7 @@ AI Agent Infrastructure on Base
 FluxFi orchestrates autonomous AI agents on Base mainnet:
 execute tasks, settle on-chain, monitor liquidity,
 coordinate decentralized runtimes,
-and power intelligent on-chain execution systems.
+and power intelligent execution systems.
 </p>
 
 <div class="hero-buttons">
@@ -616,35 +688,23 @@ READ WHITEPAPER
 <div class="stats">
 
 <div class="stat-card">
-
 <span>Network</span>
-
 <h2>Mainnet</h2>
-
 </div>
 
 <div class="stat-card">
-
 <span>Live Agents</span>
-
 <h2>10</h2>
-
 </div>
 
 <div class="stat-card">
-
 <span>Jobs 24H</span>
-
 <h2>42</h2>
-
 </div>
 
 <div class="stat-card">
-
-<span>FLUX Price</span>
-
-<h2>$0.004</h2>
-
+<span>Status</span>
+<h2>LIVE</h2>
 </div>
 
 </div>
@@ -681,7 +741,7 @@ and decentralized coordination into one scalable protocol stack.
 <h3>UI</h3>
 
 <p>
-Fast React dashboard with wallet connection,
+Fast dashboard with wallet connection,
 agent orchestration,
 portfolio monitoring,
 and real-time runtime analytics.
@@ -746,7 +806,7 @@ Ten agents, <span>powered by live Base data.</span>
 Protocol-native answers for FluxFi,
 Base ecosystem,
 runtime jobs,
-and FLUX token analytics.
+and FLUX analytics.
 </p>
 
 </div>
@@ -902,6 +962,8 @@ Discord
 
 <div class="footer-social">
 
+<a href="https://x.com/fluxfiapp" target="_blank">
+@fluxfiapp
 </a>
 
 </div>
